@@ -143,7 +143,6 @@ a {
   font-size: 0.9em;
   width: 100%;
   order: 2;
-  border: 1px solid red;
   margin-top: 1.5em;
 }
 .hero__title {
@@ -170,7 +169,6 @@ a {
   display: flex;
   width: 100%;
   order: 1;
-  border: 1px solid red;
 }
 .hero__img img {
   width: 100%;
@@ -190,6 +188,8 @@ a {
   .hero_description {
     font-size: 1em;
     margin-top: 1em;
+    text-align: left;
+    width: 70%;
   }
   .hero__info {
     order: 1;
