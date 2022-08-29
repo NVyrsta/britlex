@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #e5e5e5;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  color: #8f95a5;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100vw;
+  padding: 0 2em;
+  max-width: 1440px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  max-height: 50px;
+  position: relative;
+  padding-top: 2em;
+}
+.nav__logo {
+  max-width: 106px;
+  max-height: 54px;
+}
+.nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+.nav__link {
+  font-size: 1.25em;
+  padding: 0 1em;
+  color: #263238;
+}
+.nav__btn {
+  border: 2px solid #263238;
+  border-radius: 5px;
+  font-size: 1.5em;
+  margin-left: auto;
+  color: #263238;
+  padding: 0.3em 1em;
+  visibility: hidden;
+  white-space: nowrap;
+}
+.nav__menu {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0;
+}
+.nav__burger {
+  width: 30px;
+  height: 3px;
+  background: #39515e;
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+}
+.nav__burger::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background: #39515e;
+  top: 8px;
+  left: 0;
+}
+.nav__burger::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: #39515e;
+}
+.nav__burger.open {
+  background: transparent;
+}
+.nav__burger.open::before {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+.nav__burger.open::after {
+  transform: rotate(-45deg) translate(3px, -7px);
+  width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav__links {
+    visibility: visible;
+  }
+  .nav__btn {
+    visibility: visible;
+  }
+  .nav__menu {
+    visibility: hidden;
+  }
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0 2em;
+}
+.hero_description {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.hero__info {
+  font-size: 0.9em;
+  width: 100%;
+  order: 2;
+  border: 1px solid red;
+  margin-top: 1.5em;
+}
+.hero__title {
+  font-size: 2em;
+  color: #000;
+  position: relative;
+  line-height: 1.5em;
+}
+.hero__title::after {
+  visibility: hidden;
+}
+.hero__btn {
+  border-radius: 5px;
+  color: white;
+  background: #263238;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1em;
+  padding: 1em;
+  margin-top: 2em;
+}
+.hero__img {
+  display: flex;
+  width: 100%;
+  order: 1;
+  border: 1px solid red;
+}
+.hero__img img {
+  width: 100%;
+}
+
+@media screen and (min-width: 575px) {
+  .hero__btn {
+    padding: 1.5em;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 767px) {
+  .hero {
+    font-size: 1em;
+    flex-direction: row;
+  }
+  .hero_description {
+    font-size: 1em;
+    margin-top: 1em;
+  }
+  .hero__info {
+    order: 1;
+    text-align: left;
+  }
+  .hero__title {
+    font-size: 3em;
+    text-align: left;
+    width: 70%;
+  }
+  .hero__title::after {
+    visibility: visible;
+    content: "";
+    background: url("../img/light-bulb.png") no-repeat center;
+    background-size: cover;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 1em;
+  }
+  .hero__btn {
+    font-size: 1.1em;
+    padding: 1em 3em;
+    margin-top: 2em;
+  }
+  .hero__img {
+    order: 2;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hero__info {
+    font-size: 1.25em;
+    line-height: 1.8em;
+  }
+  .hero__title {
+    font-size: 3em;
+  }
+  .hero__title::after {
+    width: 120px;
+    height: 120px;
+  }
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=main.css.map */

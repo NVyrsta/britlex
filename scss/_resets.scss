@@ -1,0 +1,33 @@
+@use 'variables' as *;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  background: $bg-body;
+  font-family: $main-font-family;
+  overflow-x: hidden;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+.container {
+  margin: 0 auto;
+  width: 100vw;
+  padding: 0 2em;
+  max-width: 1440px;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
