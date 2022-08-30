@@ -24,23 +24,28 @@
   </head>
   <body>
     <header>
-      <section class="container">
+      <section class="header container">
         <!-- Navigation -->
         <nav class="nav">
-          <a class="nav__logo" href="#!"
-            ><img src="img/logo.png" alt="logo"
-          /></a>
+          <img class="mobile-logo" src="img/logo.png" alt="logo" />
+          <div class="nav__menu">
+            <div class="nav__burger"></div>
+          </div>
           <ul class="nav__links">
+            <li class="nav__link">
+              <a class="nav__logo" href="#!"
+                ><img src="img/logo.png" alt="logo"
+              /></a>
+            </li>
             <li class="nav__link"><a href="#!">Home</a></li>
             <li class="nav__link"><a href="#!">Skills</a></li>
             <li class="nav__link"><a href="#!">About Us</a></li>
             <li class="nav__link"><a href="#!">Pricing</a></li>
             <li class="nav__link"><a href="#!">Contacts</a></li>
+            <li class="nav__link">
+              <a role="button" class="nav__btn" href="#!">Let’s Talk</a>
+            </li>
           </ul>
-          <a role="button" class="nav__btn" href="#!">Let’s Talk</a>
-          <div class="nav__menu">
-            <div class="nav__burger"></div>
-          </div>
         </nav>
       </section>
       <!-- Intro -->

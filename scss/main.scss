@@ -1,119 +1,142 @@
 @use 'variables' as *;
-@use 'resets';
+@use 'resets' as *;
+@use 'mixins' as *;
 // -----Navigation---------
+.header {
+}
+.container {
+}
 .nav {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
-  max-width: 1440px;
-  max-height: 50px;
   position: relative;
-  padding-top: 2em;
-
-  &__logo {
-    max-width: 106px;
-    max-height: 54px;
+  // .nav__links
+  .mobile-logo {
+    height: 28px;
+    position: absolute;
+    z-index: 5;
+    top: 1em;
+    left: 3em;
+  }
+  .mobile-logo.hidden {
+    visibility: hidden;
   }
 
   &__links {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 1em;
-    margin-left: auto;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
+    padding: 0 2em;
+    position: absolute;
+    background: $title-color;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    @include flex-center;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(-100%);
   }
+
+  &__links.open {
+    transform: translateY(0);
+    @include easy-transition;
+  }
+
+  // .nav__link
 
   &__link {
-    font-size: 1.25em;
-    padding: 0 1em;
-    color: $title-color;
+    margin-bottom: 1em;
+    transform: translateX(100vw);
   }
+  &__link:hover {
+    text-decoration: underline;
+  }
+  &__link.open {
+    transform: translateX(0);
+    @include easy-transition;
+  }
+
+  // .nav__logo
+
+  &__logo {
+  }
+
+  // .nav__btn
 
   &__btn {
-    border: 2px solid $title-color;
+    border: 2px solid $text-color;
+    padding: 0.5em 2em;
     border-radius: 5px;
-    font-size: 1.5em;
-    margin-left: auto;
-    color: $title-color;
-    padding: 0.3em 1em;
-    visibility: hidden;
-    white-space: nowrap;
   }
-  // -----------Mobile menu-----------
+
+  // .nav__menu
+
   &__menu {
+    width: 28px;
+    height: 28px;
     position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 0;
+    z-index: 5;
+    top: 1em;
+    right: 4em;
+    @include flex-center;
   }
+
+  // .nav__burger
+
   &__burger {
-    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    width: 28px;
+    height: 2px;
+    background: $hamburger-btn-color;
+  }
+  &__burger::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 20px;
     height: 3px;
     background: $hamburger-btn-color;
+  }
+  &__burger::before {
+    content: '';
     position: absolute;
-    top: 0.5em;
     right: 0;
-    &::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 3px;
-      background: $hamburger-btn-color;
-      top: 8px;
-      left: 0;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      left: 0;
-      width: 30px;
-      height: 3px;
-      background: $hamburger-btn-color;
-    }
-    &.open {
-      background: transparent;
-      &::before {
-        transform: rotate(45deg) translate(5px, 8px);
-      }
-
-      &::after {
-        transform: rotate(-45deg) translate(3px, -7px);
-        width: 30px;
-      }
-    }
+    top: -8px;
+    width: 28px;
+    height: 3px;
+    background: $hamburger-btn-color;
+  }
+  &__burger.open {
+    background: transparent;
+  }
+  &__burger.open::before {
+    width: 100%;
+    transform: rotate(45deg) translate(5px, 8px);
+    background: $text-color;
+    @include easy-transition;
+  }
+  &__burger.open::after {
+    width: 28px;
+    transform: rotate(-45deg) translate(3px, -7px);
+    background: $text-color;
+    @include easy-transition;
   }
 }
-@media screen and (min-width: 768px) {
+@for $i from 1 through 7 {
+  .nav__link:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.15s;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header {
+  }
   .container {
   }
   .nav {
-    // .nav__logo
-
-    &__logo {
-    }
-
-    // .nav__links
-
-    &__links {
-      visibility: visible;
-    }
-
-    // .nav__link
-
-    &__link {
-    }
-
-    // .nav__btn
-
-    &__btn {
-      visibility: visible;
-    }
-
+    margin-bottom: 4em;
     // .nav__menu
+    .mobile-logo {
+      visibility: hidden;
+    }
 
     &__menu {
       visibility: hidden;
@@ -123,6 +146,76 @@
 
     &__burger {
     }
+
+    // .nav__links
+
+    &__links {
+      position: absolute;
+      flex-wrap: wrap;
+      top: 0;
+      width: 100%;
+      height: 10vh;
+      z-index: 1;
+      color: $title-color;
+      @include flex-center;
+      justify-content: space-between;
+      flex-direction: row;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    // .nav__link
+
+    &__link:first-child {
+      margin-right: auto;
+      margin-left: 0;
+    }
+    &__link {
+      margin-left: 2em;
+      transform: translateX(0);
+      position: relative;
+    }
+    &__link:hover {
+      text-decoration: none;
+    }
+    &__link:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $title-color;
+    }
+    &__link:first-child::after {
+      display: none;
+    }
+    &__link:hover::after {
+      width: 100%;
+      @include easy-transition;
+    }
+    &__link:last-child {
+      margin-left: auto;
+      transform: translateX(0);
+    }
+
+    // .nav__logo
+
+    &__logo {
+    }
+
+    // .nav__btn
+
+    &__btn {
+      border: 2px solid $title-color;
+    }
+    &__btn:hover {
+      color: white;
+      background: $hamburger-btn-color;
+      @include easy-transition;
+    }
+  }
+  .hero {
   }
 }
 // --------- Header--------
@@ -133,6 +226,7 @@
   align-items: center;
   text-align: center;
   padding: 0 2em;
+  padding-top: 4em;
 
   // .hero_description
 
@@ -174,6 +268,9 @@
     font-size: 1em;
     padding: 1em;
     margin-top: 2em;
+  }
+  &__btn:hover {
+    background: lighten($title-color, 20%);
   }
 
   // .hero__img

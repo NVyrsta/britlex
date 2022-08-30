@@ -1,0 +1,15 @@
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@mixin flex-sp-btw() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+@mixin easy-transition {
+  transition: all 0.3s ease-in-out;
+}
