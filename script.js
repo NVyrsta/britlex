@@ -11,18 +11,30 @@ menuBtn.addEventListener('click', () => {
     hamburger.classList.add('open');
     menu.classList.add('open');
     mobLogo.classList.add('hidden');
+    document.querySelector('body').classList.add('prevent-scroll');
     links.forEach((i) => {
       i.classList.add('open');
-      console.log(i);
+      i.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        menu.classList.remove('open');
+        mobLogo.classList.remove('hidden');
+        document.querySelector('body').classList.remove('prevent-scroll');
+
+        links.forEach((i) => {
+          i.classList.remove('open');
+        });
+        showMenu = false;
+      });
     });
     showMenu = true;
   } else {
     hamburger.classList.remove('open');
     menu.classList.remove('open');
     mobLogo.classList.remove('hidden');
+    document.querySelector('body').classList.remove('prevent-scroll');
+
     links.forEach((i) => {
       i.classList.remove('open');
-      console.log(i);
     });
     showMenu = false;
   }
