@@ -6,14 +6,15 @@
 // ----reuseable styles-----
 .section__title {
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-weight: 600;
   color: $title-color;
   padding-top: 2em;
+  padding-bottom: 2em;
 }
 @media screen and (min-width: 575px) {
   .section__title {
-    font-size: 1.9em;
+    font-size: 2em;
   }
 }
 @media screen and (min-width: 992px) {
@@ -375,10 +376,6 @@
 // ----------Skills-----------
 .skills {
   padding: 0 2em;
-  // .skills__title
-
-  &__title {
-  }
 
   // .skills__wrapper
 
@@ -443,19 +440,10 @@
     @include easy-transition;
   }
 }
-.container {
-}
-.section {
-  // .section__title
 
-  &__title {
-  }
-}
 @media screen and (min-width: 575px) {
   .skills__wrapper {
     grid-template-columns: 1fr 1fr;
-  }
-  .skills__card {
   }
   .skills__img {
     height: 185px;
@@ -607,15 +595,83 @@
     display: inline-block;
   }
 }
+// ----------Pricing-------
+.pricing {
+  padding: 0 2em;
+
+  // .pricing__wrapper
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  // .pricing__card
+
+  &__card {
+    @include flex-center;
+    flex-direction: column;
+    flex: 1;
+    padding: 1em;
+  }
+
+  // .pricing__service
+
+  &__service {
+    font-size: 1.2em;
+    color: $title-color;
+    margin: 1em 0;
+  }
+
+  // .pricing__desc
+
+  &__desc {
+    text-align: left;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  // .pricing__price
+
+  &__price {
+    background: #eeeeee;
+    display: inline-block;
+    margin: 1em 0;
+  }
+  &__price span:first-child {
+    color: $title-color;
+    font-weight: 600;
+  }
+  &__price span:last-child {
+    color: #546269;
+  }
+}
+
+@media screen and(min-width:767px) {
+  .pricing__service {
+    text-align: left;
+  }
+  .pricing__card {
+    flex: 1 1 30%;
+  }
+}
+
 // --------- Footer--------
 
 .footer {
+  padding: 4em 2em 1em;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   &__list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+@media screen and (min-width: 575px) {
+  .footer {
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
