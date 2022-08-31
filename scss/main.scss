@@ -24,8 +24,6 @@
 // ----------------------------
 
 .nav {
-  padding: 0 0;
-
   position: relative;
   // .nav__links
   .mobile-logo {
@@ -368,7 +366,87 @@
     }
   }
 }
-// --------- Main--------
+// --------- Main-------------
+// ----------Skills-----------
+.skills {
+  padding: 0 2em;
+  // .skills__title
+
+  &__title {
+  }
+
+  // .skills__wrapper
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  // .skills__card
+
+  &__card {
+    @include flex-center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    text-align: center;
+  }
+
+  // .skills__img
+
+  &__img {
+    max-width: 100%;
+  }
+  &__img img {
+    width: 100%;
+  }
+
+  // .skills__name
+
+  &__name {
+  }
+
+  // .skills__desc
+
+  &__desc {
+  }
+
+  // .skills__btn
+
+  &__btn {
+  }
+}
+.container {
+}
+.section {
+  // .section__title
+
+  &__title {
+  }
+}
+@media screen and (min-width: 575px) {
+  .skills__wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 767px) {
+  .skills__wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .skills__card:nth-child(1) {
+    grid-row: 1 / 4;
+  }
+  .skills__card--big * {
+    align-self: stretch;
+    // margin-bottom: 2.3em;
+  }
+  .skills__card:nth-child(4) {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    flex-direction: row;
+  }
+}
 // ----------About us---------
 .about {
   padding: 0 2em;
@@ -462,6 +540,13 @@
     color: $title-color;
     padding-bottom: 2em;
     visibility: visible;
+  }
+  .about_results {
+    justify-content: space-between;
+  }
+  .about__result {
+    flex: none;
+    display: inline-block;
   }
 }
 // --------- Footer--------
