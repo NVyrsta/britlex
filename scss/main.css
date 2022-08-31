@@ -571,8 +571,17 @@ body.prevent-scroll {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 100%;
   padding: 1em;
+  align-self: stretch;
+}
+.pricing__img {
+  height: 210px;
+  max-width: 100%;
+}
+.pricing__img img {
+  width: 100%;
+  height: 100%;
 }
 .pricing__service {
   font-size: 1.2em;
@@ -583,11 +592,15 @@ body.prevent-scroll {
   text-align: left;
   font-size: 1em;
   line-height: 1.5em;
+  margin-bottom: 1em;
 }
 .pricing__price {
   background: #eeeeee;
   display: inline-block;
   margin: 1em 0;
+  padding: 1em;
+  border-radius: 5px;
+  width: 100%;
 }
 .pricing__price span:first-child {
   color: #263238;
@@ -603,6 +616,10 @@ body.prevent-scroll {
   }
   .pricing__card {
     flex: 1 1 30%;
+    justify-content: flex-end;
+  }
+  .pricing__price {
+    margin-top: auto;
   }
 }
 .contact {
