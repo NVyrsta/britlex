@@ -45,4 +45,20 @@ menuBtn.addEventListener('click', () => {
     closeModalWindow();
   }
 });
-// --------Subscribe btn------
+// --------Scroll to top btn------
+const scroll = document.querySelector('.scroll-top-btn ');
+
+window.addEventListener('scroll', () => {
+  scroll.classList.toggle('active', window.scrollY > 500);
+});
+// --------Scroll function--------
+function scrollTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+// --------
+scroll.addEventListener('click', () => {
+  scrollTop();
+});
